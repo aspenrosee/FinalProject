@@ -14,6 +14,16 @@ font-family: 'Merriweather Sans', sans-serif;
     --checkbox-size: 20px;
 
     --radio-size: 15px;
+
+}
+html{
+    --slide-height: 100vh;
+    
+    --slider-height: 100%;
+
+    overflow-x: hidden;
+
+    scroll-snap-type: y mandatory;
 }
 * {
     box-sizing: border-box;
@@ -68,6 +78,10 @@ aside{
     margin-top: 20px;
 
 }
+/* article{
+    height: 100vh;
+    inset: 0;
+} */
 a {
     text-decoration: none;
 }
@@ -100,6 +114,14 @@ nav li a:hover{
 .close nav {
     display: flex;
 }
+.scrollH > * {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+
+    height: var(--slide-height);
+}
+
+
 .button:hover{
     background-color: var(--golden-moose);
 }
@@ -420,7 +442,7 @@ legend{
     display: none;
 }
 #popUp{
-    position: absolute;
+    position: fixed;
     border: .2rem solid var(--moose);
     background-color: white;
     height: fit-content;
@@ -431,8 +453,11 @@ legend{
     margin: auto;
     z-index: 9999;
 }
-#popUp > p, 
-#popUp > h2{
+#popUp > div{
+    display: grid;
+}
+#popUp  p, 
+#popUp h2{
     text-align: center;
 }
 
